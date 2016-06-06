@@ -40,6 +40,7 @@ import org.pcap4j.util.MacAddress;
 
 import java.net.Inet4Address;
 import java.util.ArrayList;
+import java.util.List;
 
 public class PacketUtils {
 	
@@ -250,7 +251,7 @@ public class PacketUtils {
 		//builder_tcp.fin(tcpHeader.getFin());
 
 
-		ArrayList<TcpOption> tcp_options=new ArrayList<TcpOption>();
+		List<TcpOption> tcp_options=new ArrayList<TcpOption>();
 		
 		TcpNoOperationOption nop=TcpNoOperationOption.getInstance();
 
@@ -333,7 +334,7 @@ public class PacketUtils {
 		
 		TcpNoOperationOption nop=TcpNoOperationOption.getInstance();
 		
-		ArrayList<TcpOption> tcp_options=new ArrayList<TcpOption>();
+		List<TcpOption> tcp_options=new ArrayList<TcpOption>();
 		
 		TcpMaximumSegmentSizeOption seg_option=new TcpMaximumSegmentSizeOption.Builder().maxSegSize(mtu).correctLengthAtBuild(true).build();
 		tcp_options.add(seg_option);

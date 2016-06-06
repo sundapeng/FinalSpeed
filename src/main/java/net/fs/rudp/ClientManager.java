@@ -5,13 +5,14 @@ import java.net.InetAddress;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 
 import net.fs.utils.MLog;
 
 
 public class ClientManager {
 	
-	HashMap<Integer, ClientControl> clientTable=new HashMap<Integer, ClientControl>();
+	Map<Integer, ClientControl> clientTable=new HashMap<Integer, ClientControl>();
 	
 	Thread mainThread;
 	

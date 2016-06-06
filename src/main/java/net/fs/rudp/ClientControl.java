@@ -6,6 +6,7 @@ import java.net.DatagramPacket;
 import java.net.InetAddress;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 import java.util.Random;
 
 import net.fs.rudp.message.PingMessage;
@@ -23,7 +24,7 @@ public class ClientControl {
 	
 	Object synlock=new Object();
 	
-	private HashMap<Integer, SendRecord> sendRecordTable=new HashMap<Integer, SendRecord>();
+	private Map<Integer, SendRecord> sendRecordTable=new HashMap<Integer, SendRecord>();
 
 	
 	HashMap<Integer, SendRecord> sendRecordTable_remote=new HashMap<Integer, SendRecord>();
@@ -49,7 +50,7 @@ public class ClientControl {
 	
 	Random ran=new Random();
 	
-	HashMap<Integer, Long> pingTable=new HashMap<Integer, Long>();
+	Map<Integer, Long> pingTable=new HashMap<Integer, Long>();
 	
 	public int pingDelay=250;
 	
@@ -67,7 +68,7 @@ public class ClientControl {
 	
 	int dstPort;
 	
-	public HashMap<Integer, ConnectionUDP> connTable=new  HashMap<Integer, ConnectionUDP>();
+	public Map<Integer, ConnectionUDP> connTable=new  HashMap<Integer, ConnectionUDP>();
 		
 	Object syn_connTable=new Object();
 	

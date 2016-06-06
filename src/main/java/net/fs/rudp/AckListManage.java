@@ -3,10 +3,11 @@ package net.fs.rudp;
 
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 
 public class AckListManage implements Runnable{
 	Thread mainThread;
-	HashMap<Integer, AckListTask> taskTable;
+	Map<Integer, AckListTask> taskTable;
 	public AckListManage(){
 		taskTable=new HashMap<Integer, AckListTask>();
 		mainThread=new Thread(this);

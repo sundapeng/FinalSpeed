@@ -19,6 +19,7 @@
 
 package net.fs.utils;
 
+import java.util.List;
 import java.util.Vector;
 
 
@@ -31,7 +32,7 @@ public class NetStatus {
 	
 	int averageTime;
 	
-	Vector<SpeedUnit> speedList;
+	List<SpeedUnit> speedList;
 	SpeedUnit currentUnit;
 	
 	public int upSpeed=0;

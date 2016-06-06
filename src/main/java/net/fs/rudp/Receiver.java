@@ -5,6 +5,7 @@ import java.net.DatagramPacket;
 import java.net.InetAddress;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 import net.fs.rudp.message.AckListMessage;
 import net.fs.rudp.message.CloseMessage_Conn;
@@ -18,7 +19,7 @@ public class Receiver {
 	Sender sender;
 	public InetAddress dstIp;
 	public int dstPort;
-	HashMap<Integer, DataMessage> receiveTable=new HashMap<Integer, DataMessage>();
+	Map<Integer, DataMessage> receiveTable=new HashMap<Integer, DataMessage>();
 	int lastRead=-1;
 	int lastReceive=-1;
 	Object availOb=new Object();
