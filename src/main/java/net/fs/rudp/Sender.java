@@ -6,6 +6,7 @@ import java.net.DatagramPacket;
 import java.net.InetAddress;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 import net.fs.rudp.message.AckListMessage;
@@ -24,7 +25,7 @@ public class Sender {
 	boolean bussy=false;
 	Object bussyOb=new Object();
 	boolean isHave=false;
-	public HashMap<Integer, DataMessage> sendTable=new HashMap<Integer, DataMessage>();
+	public Map<Integer, DataMessage> sendTable=new HashMap<Integer, DataMessage>();
 	boolean isReady=false;
 	Object readyOb=new Object();
 	Object winOb=new Object();

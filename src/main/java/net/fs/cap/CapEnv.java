@@ -52,6 +52,7 @@ import java.net.UnknownHostException;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 import java.util.concurrent.LinkedBlockingQueue;
 
@@ -299,7 +300,7 @@ public class CapEnv {
 
 	void detectInterface() {
 		List<PcapNetworkInterface> allDevs = null;
-		HashMap<PcapNetworkInterface, PcapHandle> handleTable=new HashMap<PcapNetworkInterface, PcapHandle>();
+		Map<PcapNetworkInterface, PcapHandle> handleTable=new HashMap<PcapNetworkInterface, PcapHandle>();
 		try {
 			allDevs = Pcaps.findAllDevs();
 		} catch (PcapNativeException e1) {

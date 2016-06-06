@@ -17,6 +17,7 @@ import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.util.HashSet;
 import java.util.Random;
+import java.util.Set;
 
 public class MapClient implements Trafficlistener{
 
@@ -46,7 +47,7 @@ public class MapClient implements Trafficlistener{
 
 	int connNum=0;
 	
-	HashSet<ClientProcessorInterface> processTable=new HashSet<ClientProcessorInterface>();
+	Set<ClientProcessorInterface> processTable=new HashSet<ClientProcessorInterface>();
 	
 	Object syn_process=new Object();
 	

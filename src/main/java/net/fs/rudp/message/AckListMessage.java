@@ -8,6 +8,7 @@ import net.fs.utils.ByteShortConvert;
 import java.net.DatagramPacket;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 
 public class AckListMessage extends Message{
@@ -18,9 +19,9 @@ public class AckListMessage extends Message{
 	int r1,r2,r3,s1,s2,s3;
 
 	@SuppressWarnings("unchecked")
-	public AckListMessage(long connId,ArrayList ackList,int lastRead,
-			HashMap<Integer, SendRecord> sendRecordTable,int timeId,
-			int connectId,int clientId){
+	public AckListMessage(long connId, ArrayList ackList, int lastRead,
+						  Map<Integer, SendRecord> sendRecordTable, int timeId,
+						  int connectId, int clientId){
 		this.clientId=clientId;
 		this.connectId=connectId;
 		this.ackList=ackList;

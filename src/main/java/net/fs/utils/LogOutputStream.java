@@ -4,10 +4,11 @@ package net.fs.utils;
 import java.io.OutputStream;
 import java.io.PrintStream;
 import java.util.HashSet;
+import java.util.Set;
 
 public class LogOutputStream extends PrintStream{
 	
-	HashSet<LogListener> listeners=new HashSet<LogListener>();
+	Set<LogListener> listeners=new HashSet<LogListener>();
 	
 	StringBuffer buffer=new StringBuffer();
 	

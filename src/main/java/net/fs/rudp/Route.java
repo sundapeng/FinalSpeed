@@ -8,7 +8,9 @@ import java.net.InetAddress;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
+import java.util.Set;
 import java.util.Vector;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.SynchronousQueue;
@@ -26,7 +28,7 @@ import net.fs.utils.MessageCheck;
 public class Route {
 
 	private DatagramSocket ds;
-	public HashMap<Integer, ConnectionUDP> connTable;
+	public Map<Integer, ConnectionUDP> connTable;
 	Route route;
 	Thread mainThread;
 	Thread reveiveThread;
@@ -53,11 +55,11 @@ public class Route {
 	
 	String pocessName="";
 
-	HashSet<Integer> setedTable=new HashSet<Integer>();
+	Set<Integer> setedTable=new HashSet<Integer>();
 
 	static int vv;
 
-	HashSet<Integer> closedTable=new HashSet<Integer>();
+	Set<Integer> closedTable=new HashSet<Integer>();
 
 	public static int localDownloadSpeed,localUploadSpeed;
 

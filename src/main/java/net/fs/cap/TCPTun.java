@@ -36,12 +36,14 @@ import java.net.InetAddress;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Random;
+import java.util.Set;
 
 
 public class TCPTun {
 
-	HashMap<Integer,TcpPacket>  sendedTable_server=new HashMap<Integer,TcpPacket> ();
+	Map<Integer,TcpPacket> sendedTable_server=new HashMap<Integer,TcpPacket> ();
 	HashMap<Integer,TcpPacket>  sendedTable_history_server=new HashMap<Integer,TcpPacket> ();
 
 	int clientSequence=Integer.MIN_VALUE;
@@ -50,7 +52,7 @@ public class TCPTun {
 
 	PcapHandle sendHandle;
 
-	HashSet<Short> selfAckTable=new HashSet<Short>();
+	Set<Short> selfAckTable=new HashSet<Short>();
 
 	HashMap<Integer, SendRecord> sendrecordTable=new HashMap<Integer, SendRecord>();
 

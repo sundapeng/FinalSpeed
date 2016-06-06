@@ -11,6 +11,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
@@ -22,7 +23,7 @@ public class PortMapManager {
 	
 	ArrayList<MapRule> mapList=new ArrayList<MapRule>();
 	
-	HashMap<Integer, MapRule> mapRuleTable=new HashMap<Integer, MapRule>();
+	Map<Integer, MapRule> mapRuleTable=new HashMap<Integer, MapRule>();
 	
 	String configFilePath="port_map.json";
 	

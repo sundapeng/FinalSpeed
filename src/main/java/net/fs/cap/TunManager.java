@@ -24,10 +24,11 @@ import net.fs.utils.MLog;
 
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 
 public class TunManager {
 	
-	HashMap<String, TCPTun> connTable=new HashMap<String, TCPTun>();
+	Map<String, TCPTun> connTable=new HashMap<String, TCPTun>();
 	
 	static TunManager tunManager;
 	

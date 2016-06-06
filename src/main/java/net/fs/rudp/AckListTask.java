@@ -3,6 +3,8 @@ package net.fs.rudp;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 import net.fs.rudp.message.AckListMessage;
 
@@ -13,7 +15,7 @@ public class AckListTask {
 	int lastRead=0;
 	ArrayList<Integer> ackList;
 	@SuppressWarnings("unchecked")
-	HashSet set;
+	Set set;
 	AckListTask(ConnectionUDP conn){
 		this.conn=conn;
 		ackList=new ArrayList();
@@ -61,7 +63,7 @@ public class AckListTask {
 		}
 	}
 	
-	ArrayList<Integer> copy(int offset,int length,ArrayList<Integer> ackList){
+	ArrayList<Integer> copy(int offset,int length,List<Integer> ackList){
 		ArrayList<Integer> nl= new ArrayList<Integer>();
 		for(int i=0;i<length;i++){
 			nl.add(ackList.get(offset+i));
