@@ -104,17 +104,15 @@ public class ConnectionUDP {
 	
 	//完全关闭
 	public void destroy(boolean force){
-		if(!destroied){
-			if((localClosed&&remoteClosed)||force){
-				destroied=true;
-				connected=false;
-				uis.closeStream_Local();
-				uos.closeStream_Local();
-				sender.destroy();
-				receiver.destroy();
-				route.removeConnection(this);
-				clientControl.removeConnection(this);
-			}
+		if(!destroied && ((localClosed&&remoteClosed)||force)){
+			destroied=true;
+			connected=false;
+			uis.closeStream_Local();
+			uos.closeStream_Local();
+			sender.destroy();
+			receiver.destroy();
+			route.removeConnection(this);
+			clientControl.removeConnection(this);
 		}
 	}
 	

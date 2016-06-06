@@ -254,11 +254,9 @@ public class ClientControl {
 				needSleep_All+=sleepTime;
 				
 				long moreTime=trueSleep_All-needSleep_All;
-				if(moreTime>0){
-					if(sleepTime<=moreTime){
-						sleepTime=0;
-						trueSleep_All-=sleepTime;
-					}
+				if(moreTime>0 && sleepTime<=moreTime){
+					sleepTime=0;
+					trueSleep_All-=sleepTime;
 				}
 				
 				long s=needTime/(1000*1000);

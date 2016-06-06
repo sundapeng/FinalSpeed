@@ -205,19 +205,17 @@ public class TCPTun {
 				}
 
 				if(!tcpHeader.getSyn()&&tcpHeader.getAck()){
-					if(tcpPacket.getPayload()==null){
+					if(tcpPacket.getPayload()==null && tcpHeader.getAcknowledgmentNumber()==localSequence){
 						//第三次握手,客户端确认
-						if(tcpHeader.getAcknowledgmentNumber()==localSequence){
-							MLog.println("接收第三次握手 "+" ident "+ipV4Header.getIdentification());
-							MLog.println(packet+"");
-							Thread t1=new Thread(){
-								public void run(){
-									//startSend(basePacket_server,syc_sequence_client+1);
-								}
-							};
-							//t1.start();
-							connectReady=true;
-						}
+						MLog.println("接收第三次握手 "+" ident "+ipV4Header.getIdentification());
+						MLog.println(packet+"");
+						Thread t1=new Thread(){
+							public void run(){
+								//startSend(basePacket_server,syc_sequence_client+1);
+							}
+						};
+						//t1.start();
+						connectReady=true;
 					}
 					//MLog.println("客户端响应preview\n "+packet);
 					//MLog.println("request "+tcp.ack());
@@ -259,28 +257,26 @@ public class TCPTun {
 
 		if(!preDataReady){
 			if(!connectReady){
-				if(tcpHeader.getAck()&&tcpHeader.getSyn()){
-					if(tcpHeader.getAcknowledgmentNumber()==(localStartSequence+1)){
-						MLog.println("接收第二次握手 "+" ident "+ipV4Header.getIdentification());
-						MLog.println(""+packet);
-						remoteStartSequence=tcpHeader.getSequenceNumber();
-						remoteSequence=remoteStartSequence+1;
-						remoteSequence_max=remoteSequence;
-						Packet p3=PacketUtils.createAck(capEnv.local_mac, capEnv.gateway_mac, capEnv.local_ipv4, localPort, remoteAddress, remotePort, remoteSequence , localSequence,getIdent());
-						try {
-							sendHandle.sendPacket(p3);
-							MLog.println("发送第三次握手 "+" ident "+localIdent);
-							MLog.println(""+p3);
-							connectReady=true;
-							
-							byte[] sim=getSimRequestHead(remotePort);
-							sendData(sim);
-							MLog.println("发送请求 "+" ident "+localIdent);
-						} catch (PcapNativeException e) {
-							e.printStackTrace();
-						} catch (NotOpenException e) {
-							e.printStackTrace();
-						}
+				if(tcpHeader.getAck()&&tcpHeader.getSyn() && tcpHeader.getAcknowledgmentNumber()==(localStartSequence+1)){
+					MLog.println("接收第二次握手 "+" ident "+ipV4Header.getIdentification());
+					MLog.println(""+packet);
+					remoteStartSequence=tcpHeader.getSequenceNumber();
+					remoteSequence=remoteStartSequence+1;
+					remoteSequence_max=remoteSequence;
+					Packet p3=PacketUtils.createAck(capEnv.local_mac, capEnv.gateway_mac, capEnv.local_ipv4, localPort, remoteAddress, remotePort, remoteSequence , localSequence,getIdent());
+					try {
+						sendHandle.sendPacket(p3);
+						MLog.println("发送第三次握手 "+" ident "+localIdent);
+						MLog.println(""+p3);
+						connectReady=true;
+						
+						byte[] sim=getSimRequestHead(remotePort);
+						sendData(sim);
+						MLog.println("发送请求 "+" ident "+localIdent);
+					} catch (PcapNativeException e) {
+						e.printStackTrace();
+					} catch (NotOpenException e) {
+						e.printStackTrace();
 					}
 				}
 			}else {
